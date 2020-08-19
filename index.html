@@ -11,25 +11,30 @@
         <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="./styles.css">
-
     </head>
 
-
-    <header>
-        <h1>raindrops</h1>
-    </header>
-
-    <body>
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** UNCHANGING OBJECTS ***-->
         <!--TITLE-->
         <!--FOOTER-->
+
+        <header>
+                <h1>raindrops</h1>
+        </header>
+
+        <body>
 
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** CONTAINER: WELCOME SCREEN ***-->
         <!--BUTTON: NEW GAME-->
         <!--BUTTON: HOW TO PLAY-->
         <!--BUTTON: HIGH SCORES-->
+
+        <div class="screen welcome">
+                <button class="main buttNew">NEW GAME</button>
+                <button class="main buttRules">HOW TO PLAY</button>
+                <button class="main buttScores">HIGH SCORES</button>
+        </div>
 
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** CONTAINER: GAME SCREEN ***-->
@@ -44,6 +49,32 @@
         <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
         <!--Sub-Objects: Quantities for each category-->
 
+        <div class="screen ingame">
+                <div class="timer"></div>
+                <div class="prompt"></div>
+                <input class="input"><input>
+
+                <div class="history">
+                        <!--As per the plan, divs containing individual words will be programatically added here.-->
+                </div>
+
+                <div class="categories">
+                        <div class="word3"></div>
+                        <div class="word4"></div>
+                        <div class="word5"></div>
+                        <div class="word6"></div>
+                        <div class="word7"></div>
+                        <div class="word8"></div>
+                        <div class="word9"></div>
+                        <div class="word10"></div>
+                        <div class="word11"></div>
+                        <div class="word12"></div>  <!--NOTE: THIS LAST CATEGORY CATCHES WORDS 12 CHARACTERS OR LONGER!-->
+                </div>
+
+                <button class="main buttBack">LEAVE</button>
+
+        </div>
+
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** CONTAINER: POSTGAME SCREEN ***-->
         <!--BUTTONS!!  SO MANY BUTTONS!!-->
@@ -56,9 +87,30 @@
         <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
         <!--Sub-Objects: Quantities for each category-->
 
+        <div class="screen endgame">
+                <div class="history">
+                        <!--As per the plan, all words input during the round are displayed programatically here.-->
+                        <!--When a displayed word is clicked on, it DOES NOT DISAPPEAR, but it is faded out to show that it will NOT be included in the final score.-->
+                </div>
+
+                <button class="buttSubmit">SUBMIT</button>
+
+                <div class="totalscore"></div>
+
+                <div> <!--COPY THE STRUCTURE FROM THE GAME SCREEN FOR CATEGORIES AND QUANTITIES OF WORDS--></div>
+
+                <button class="main buttBack">LEAVE</button>
+
+        </div>
+
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** CONTAINER: HOW TO PLAY SCREEN-->
         <!--RULES TEXT-->
+
+        <div>
+                <h3>Rules text goes here.</h3>
+                <button class="main buttBack">LEAVE</button>
+        </div>
 
 <!--____________________________________________________________________________________________________________________________________________-->
         <!--*** CONTAINER: HIGH SCORES SCREEN ***-->
@@ -66,6 +118,16 @@
         <!--Sub-Object: PLAYER NAME-->
         <!--Sub-Object: PROMPT & DIFFICULTY-->
         <!--Sub-Object: TOTAL SCORE-->
+
+        <div class="screen highscores">
+                <div class="scorebox">
+                        <!--RECORDS OF ALL GAMES PLAYED THIS SESSION ARE DISPLAYED PROGRAMMATICALLY HERE, RANKED BY TOTAL SCORE.-->
+                </div>
+
+
+                <button class="main buttBack">LEAVE</button>
+
+        </div>
 
         <script src="./scripts.js"></script>
 

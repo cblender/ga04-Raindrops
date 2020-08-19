@@ -10,4 +10,6 @@ This is a simple game project, so scoring relies on the player.  At the end of t
 
 - Each word's base score is multiplied based on its length.  The multiplier is equal to 1+((N-3)/10), where N is the word's length.  Longer words are worth more per letter than short words.
 
-- The total score for all words in a particular length category is also multiplied.  This multiplier is equal to (N+M)/16, where N is the length and M is the quantity of words.
+- The total score for all words in a particular length category (four words, eight words, etc.) is also multiplied.  This multiplier is equal to (N+M)/16, where N is the word length and M is the quantity of words.
+
+- After all operations are completed, the score is rounded to the nearest integer value.

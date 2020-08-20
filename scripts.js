@@ -60,11 +60,23 @@ ___________________________________________________________/$$  \ $$________
 
 
     let test = document.querySelector(".buttNew")
-let testArray = [];
+let input = [];
 
 document.addEventListener('keydown', function (event) {             // TEST KEYBOARD LISTENER
-    testArray.push(event.key);                                      
-    test.innerText = testArray;
+    if (event.key === "Backspace") {
+        input.pop();
+    }
+    else if (event.key === "Enter") {
+        console.log(input.join(''));
+        input = [];
+    }
+    else if (event.key === "Space") {
+
+    }
+    else {
+        input.push(event.key);
+    }                                    
+    test.innerText = input.join('');
     console.log(event.key);
 });
     

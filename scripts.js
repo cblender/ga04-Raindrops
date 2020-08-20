@@ -33,6 +33,8 @@ ___________________________________________________________/$$  \ $$________
 
 // THE TIMER!  MAKE SURE TO LEARN HOW TO IMPLEMENT A ROUND TIMER!!
 
+// VERY IMPORTANT NOTE ABOUT THE KEYBOARD LISTENER!!!  IMPLEMENT A FUNCTION TO CLEAR THE PRIMARY INPUT ARRAY AND CALL IT AT ALL GAMESTATE CHANGES!!
+
 
 //___________________________________________________________________________________________________________________
 //<!--*** UNCHANGING OBJECTS ***-->
@@ -55,6 +57,16 @@ ___________________________________________________________/$$  \ $$________
     //<!--TIMER-->
     //<!--PROMPT-->
     //<!--PRIMARY INPUT-->
+
+
+    let test = document.querySelector(".buttNew")
+let testArray = [];
+
+document.addEventListener('keydown', function (event) {             // TEST KEYBOARD LISTENER
+    testArray.push(event.key);                                      
+    test.innerText = testArray;
+    console.log(event.key);
+});
     
     //<!--OBJECT: INPUT HISTORY-->
     //<!--Sub-Objects: Each word entered, in historical order.-->

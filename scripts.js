@@ -59,25 +59,27 @@ ___________________________________________________________/$$  \ $$________
     //<!--PRIMARY INPUT-->
 
 
-    let test = document.querySelector(".buttNew")
+let test = document.querySelector(".buttNew")
 let input = [];
 
 document.addEventListener('keydown', function (event) {             // TEST KEYBOARD LISTENER
-    if (event.key === "Backspace") {
-        input.pop();
+    if (event.keyCode <= 90 && event.keyCode >= 65) {
+        input.push(event.key);
+    }   
+    else if (event.key === "Backspace") {
+        if (event.ctrlKey) {
+            input = [];
+        }
+        else {
+            input.pop();
+        }
     }
     else if (event.key === "Enter") {
         console.log(input.join(''));
         input = [];
-    }
-    else if (event.key === "Space") {
-
-    }
-    else {
-        input.push(event.key);
-    }                                    
+    }                          
     test.innerText = input.join('');
-    console.log(event.key);
+    console.log(event.keyCode);
 });
     
     //<!--OBJECT: INPUT HISTORY-->

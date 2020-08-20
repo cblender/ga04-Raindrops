@@ -70,8 +70,8 @@ console.log(buttScores);                                                        
 buttNew.addEventListener("click", gotoGame);
 function gotoGame() {
     console.log("FIRED! function gotoGame");                                    // TEST LOGGER
-    screens[0].classList.remove("hidden");
-    screens[1].classList.add("hidden");                             
+    screens[1].classList.remove("hidden");
+    screens[0].classList.add("hidden");                             
 }
 
 buttRules.addEventListener("click", gotoRules);

@@ -72,7 +72,8 @@ buttNew.addEventListener("click", gotoGame);
 function gotoGame() {
     console.log("FIRED! function gotoGame");                                    // TEST LOGGER
     screens[1].classList.remove("hidden");
-    screens[0].classList.add("hidden");                             
+    screens[0].classList.add("hidden");
+    newGame();                                      // NOTE TO SELF:  DECLARE NEWGAME FUNCTION!!                            
 }
 
 buttRules.addEventListener("click", gotoRules);
@@ -192,7 +193,12 @@ document.addEventListener('keydown', function (event) {
     }
     
     else if (event.key === "Enter") {
-        console.log(input.join(''));
+        if(isGameActive){
+            game.sendInput(input, game.history);  // NOTE TO SELF:  DECLARE FUNCTION "SENDINPUT"
+        }
+        else {
+            console.log(input.join(''));                                        // TEST LOGGER
+        }
         input = [];
     }                          
     test.innerText = input.join('');
@@ -203,18 +209,47 @@ document.addEventListener('keydown', function (event) {
 
 
 
-/*$$$$$$$                                               /$$    
-| $$__  $$                                             | $$    
-| $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$  
-| $$$$$$$//$$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$|_  $$_/  
-| $$____/| $$  \__/| $$  \ $$| $$ \ $$ \ $$| $$  \ $$  | $$    
-| $$     | $$      | $$  | $$| $$ | $$ | $$| $$  | $$  | $$ /$$
-| $$     | $$      |  $$$$$$/| $$ | $$ | $$| $$$$$$$/  |  $$$$/
-|__/     |__/       \______/ |__/ |__/ |__/| $$____/    \___/  
- _________________________________________ | $$ _______________
-/_________________________________________ | $$ ______________/
-                                           |_*/                
+  /*$$$$$                                   
+ /$$__  $$                                  
+| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+| $$ /$$$$ |____  $$| $$_  $$_  $$ /$$__  $$
+| $$|_  $$  /$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
+| $$  \ $$ /$$__  $$| $$ | $$ | $$| $$_____/
+|  $$$$$$/|  $$$$$$$| $$ | $$ | $$|  $$$$$$$
+ \______/  \_______/|__/ |__/ |__/ \_______/
+ ___________________________________________                                          
+/_________________________________________*/                
 
+// BEHOLD THE MIGHTY ARRAY OF VARIOUS LETTERS:
+var prompts = ['he','po','bu','wo','hi','am','il','ob','os','le','sc','dr','in','ger','com','lit','sou','ent','den','sle','car','alt','fra','mea','pre','par','con','com','str'];
+
+var game;                                                       // MASTER GAME OBJECT VARIABLE
+
+var isGameActive = false;                                       // MASTER GAMESTATE CONTROL VARIABLE
+
+class Game {
+    constructor (array) {
+        this.prompt = array[Math.floor(Math.random()*array.length)];
+        this.history = [];
+        this.player = '';
+    }
+
+    sendInput(array1, array2) {
+        for (i=0; i<array1.length; i++) {
+            if (array1[i] === " ") {
+                array1.splice(i, 1);
+            }
+        }
+        array2.push(array1.join(''));
+        console.log(array2[(array2.length -1)]," was entered!");
+    }
+}
+
+function newGame() {
+    console.log("FIRED! function newGame")
+    game = new Game(prompts);
+    isGameActive = true;
+}
 
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: POSTGAME SCREEN ***-->
@@ -267,5 +302,6 @@ function gotoWelcome() {
     for (i=1; i<screens.length; i++){
         screens[i].classList.add("hidden");
     }
-    screens[0].classList.remove("hidden"); 
+    screens[0].classList.remove("hidden");
+    endGame();
 }

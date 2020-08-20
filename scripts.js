@@ -34,66 +34,60 @@ ___________________________________________________________/$$  \ $$________
 // THE TIMER!  MAKE SURE TO LEARN HOW TO IMPLEMENT A ROUND TIMER!!
 
 
-/*___________________________________________________________________________________________________________________
-<!--*** UNCHANGING OBJECTS ***-->
+//___________________________________________________________________________________________________________________
+//<!--*** UNCHANGING OBJECTS ***-->
 
-    <!--TITLE--> 
-    <!--FOOTER-->
-*/
-
-
-/*___________________________________________________________________________________________________________________
-<!--*** CONTAINER: WELCOME SCREEN ***-->
-
-    <!--BUTTON: NEW GAME-->
-    <!--BUTTON: HOW TO PLAY-->
-    <!--BUTTON: HIGH SCORES-->
-*/
+    //<!--TITLE--> 
+    //<!--FOOTER-->
 
 
-/*___________________________________________________________________________________________________________________
-<!--*** CONTAINER: GAME SCREEN ***-->
+//___________________________________________________________________________________________________________________
+//<!--*** CONTAINER: WELCOME SCREEN ***-->
 
-    <!--TIMER-->
-    <!--PROMPT-->
-    <!--PRIMARY INPUT-->
+    //<!--BUTTON: NEW GAME-->
+    //<!--BUTTON: HOW TO PLAY-->
+    //<!--BUTTON: HIGH SCORES-->
+
+
+//___________________________________________________________________________________________________________________
+//<!--*** CONTAINER: GAME SCREEN ***-->
+
+    //<!--TIMER-->
+    //<!--PROMPT-->
+    //<!--PRIMARY INPUT-->
     
-    <!--OBJECT: INPUT HISTORY-->
-    <!--Sub-Objects: Each word entered, in historical order.-->
+    //<!--OBJECT: INPUT HISTORY-->
+    //<!--Sub-Objects: Each word entered, in historical order.-->
     
-    <!--OBJECT: CATEGORIES-->
-    <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
-    <!--Sub-Objects: Quantities for each category-->
-*/
+    //<!--OBJECT: CATEGORIES-->
+    //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
+    //<!--Sub-Objects: Quantities for each category-->
 
 
-/*___________________________________________________________________________________________________________________
-<!--*** CONTAINER: POSTGAME SCREEN ***-->
+//___________________________________________________________________________________________________________________
+//<!--*** CONTAINER: POSTGAME SCREEN ***-->
 
-    <!--BUTTONS!!  SO MANY BUTTONS!!-->
-    <!--Sub-Objects: Each entry from the INPUT HISTORY object in the GAME screen becomes its own button.-->
+    //<!--BUTTONS!!  SO MANY BUTTONS!!-->
+    //<!--Sub-Objects: Each entry from the INPUT HISTORY object in the GAME screen becomes its own button.-->
 
-    <!--BUTTON: "SUBMIT"-->
-    <!--TOTAL SCORE-->
+    //<!--BUTTON: "SUBMIT"-->
+    //<!--TOTAL SCORE-->
 
-    <!--OBJECT: CATEGORIES-->
-    <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
-    <!--Sub-Objects: Quantities for each category-->
-*/
-
-
-/*___________________________________________________________________________________________________________________
-<!--*** CONTAINER: HOW TO PLAY SCREEN-->
-
-    <!--RULES TEXT-->
-*/
+    //<!--OBJECT: CATEGORIES-->
+    //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
+    //<!--Sub-Objects: Quantities for each category-->
 
 
-/*___________________________________________________________________________________________________________________
-<!--*** CONTAINER: HIGH SCORES SCREEN ***-->
+//___________________________________________________________________________________________________________________
+//<!--*** CONTAINER: HOW TO PLAY SCREEN-->
 
-    <!--OBJECT: GAME RECORD-->
-    <!--Sub-Object: PLAYER NAME-->
-    <!--Sub-Object: PROMPT & DIFFICULTY-->
-    <!--Sub-Object: TOTAL SCORE-->
-*/
+    //<!--RULES TEXT-->
+
+
+//___________________________________________________________________________________________________________________
+//<!--*** CONTAINER: HIGH SCORES SCREEN ***-->
+
+    //<!--OBJECT: GAME RECORD-->
+    //<!--Sub-Object: PLAYER NAME-->
+    //<!--Sub-Object: PROMPT & DIFFICULTY-->
+    //<!--Sub-Object: TOTAL SCORE-->

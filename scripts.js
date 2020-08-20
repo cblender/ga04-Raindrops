@@ -67,6 +67,7 @@ console.log(buttNew);                                                           
 console.log(buttRules);                                                         // TEST LOGGER
 console.log(buttScores);                                                        // TEST LOGGER
 
+// STATECHANGE BUTTONS LETS GET IT
 buttNew.addEventListener("click", gotoGame);
 function gotoGame() {
     console.log("FIRED! function gotoGame");                                    // TEST LOGGER
@@ -77,11 +78,15 @@ function gotoGame() {
 buttRules.addEventListener("click", gotoRules);
 function gotoRules() {
     console.log("FIRED! function gotoRules");                                   // TEST LOGGER
+    screens[3].classList.remove("hidden");
+    screens[0].classList.add("hidden");
 }
 
 buttScores.addEventListener("click", gotoScores);
 function gotoScores() {
     console.log("FIRED! function gotoScores");                                  // TEST LOGGER
+    screens[4].classList.remove("hidden");
+    screens[0].classList.add("hidden");
 }
 
 
@@ -92,6 +97,17 @@ function gotoScores() {
     //<!--PROMPT-->
     //<!--PRIMARY INPUT-->
     //<!--BUTTON: BEGIN GAME-->
+    //<!--BUTTON: LEAVE GAME-->
+
+    //<!--OBJECT: INPUT HISTORY-->
+    //<!--Sub-Objects: Each word entered, in historical order.-->
+    
+    //<!--OBJECT: CATEGORIES-->
+    //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
+    //<!--Sub-Objects: Quantities for each category-->
+
+
+
 
 /*$$$$$$$$ /$$                                   /$$  /$$$$$$ /$$    /$$
 |__  $$__/|__/                                  | $$ |__ $$_/| $$$  /$$$
@@ -128,6 +144,7 @@ buttStart.addEventListener("click", function() {
         display = document.querySelector('.timer');
     startTimer(timeLimit, display);
 });
+// END OF "TIMER!" SCRIPT
 
 
 
@@ -180,19 +197,9 @@ document.addEventListener('keydown', function (event) {
     test.innerText = input.join('');
     console.log(event.keyCode);
 });
+//________________________________________________________________________________________
+// END OF "KEYLIST!" SCRIPT
 
-/* END OF KEYLIST!(TM)
-________________________________________________________________________________________
-*/
-
-
-    
-    //<!--OBJECT: INPUT HISTORY-->
-    //<!--Sub-Objects: Each word entered, in historical order.-->
-    
-    //<!--OBJECT: CATEGORIES-->
-    //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
-    //<!--Sub-Objects: Quantities for each category-->
 
 
 //___________________________________________________________________________________________________________________
@@ -222,3 +229,29 @@ ________________________________________________________________________________
     //<!--Sub-Object: PLAYER NAME-->
     //<!--Sub-Object: PROMPT & DIFFICULTY-->
     //<!--Sub-Object: TOTAL SCORE-->
+
+
+
+/*$$                                              
+| $$                                              
+| $$        /$$$$$$   /$$$$$$  /$$    /$$ /$$$$$$ 
+| $$       /$$__  $$ |____  $$|  $$  /$$//$$__  $$
+| $$      | $$$$$$$$  /$$$$$$$ \  $$/$$/| $$$$$$$$
+| $$      | $$_____/ /$$__  $$  \  $$$/ | $$_____/  /$$
+| $$$$$$$$|  $$$$$$$|  $$$$$$$   \  $/  |  $$$$$$$ | $$
+|________/ \_______/ \_______/    \_/    \_______/ |_*/
+// STATECHANGE BUTTONS LETS GET IT
+
+let backButts = document.querySelectorAll(".buttBack");
+
+for (i=0; i<backButts.length; i++) {
+    backButts[i].addEventListener("click", gotoWelcome)
+}
+
+function gotoWelcome() {
+    console.log("FIRED! function gotoGame");                                    // TEST LOGGER
+    for (i=1; i<screens.length; i++){
+        screens[i].classList.add("hidden");
+    }
+    screens[0].classList.remove("hidden"); 
+}

@@ -80,6 +80,7 @@ function startVideo() {
 var muted = false;
 
  // BUTTON: STOP
+ // QUERYSELECTOR SHOULD BE TARGETED TO THE APPROPRIATE CLASSNAME FOR THE CURRENT PROJECT
 const buttStop = document.querySelector(".buttAudioStop");
 console.log(buttStop);
 buttStop.addEventListener("click", stopAudio);
@@ -91,6 +92,7 @@ function stopAudio() {
 }
 
 //BUTTON: START
+// QUERYSELECTOR SHOULD BE TARGETED TO THE APPROPRIATE CLASSNAME FOR THE CURRENT PROJECT
 const buttPlay = document.querySelector(".buttAudioStart");
 console.log(buttPlay);
 buttPlay.addEventListener("click", startAudio);

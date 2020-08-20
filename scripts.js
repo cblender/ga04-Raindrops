@@ -73,7 +73,9 @@ document.addEventListener('keydown', function (event) {             // TEST KEYB
     else if (event.key === "Backspace") {
         if (event.ctrlKey) {
             if (input[(input.length -1)] === " ") {
+                while(input[(input.length -1)] === " ") {
                 input.pop()
+                }
                 let last = input.lastIndexOf(" ");
                 input.splice((last - input.length + 1));
             }

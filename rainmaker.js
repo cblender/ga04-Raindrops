@@ -9,9 +9,10 @@
 | $$  | $$|  $$$$$$$| $$| $$  | $$| $$ | $$ | $$|  $$$$$$$| $$ \  $$|  $$$$$$$| $$      
 |__/  |__/ \_______/|__/|__/  |__/|__/ |__/ |__/ \_______/|__/  \__/ \_______/|__/
 ________________________________________________________________________________________
-BACKGROUND AMBIENT AUDIO PLAYER SCRIPT BY CHRIS BLENDERMANN                           */     
+// BACKGROUND AMBIENT AUDIO PLAYER SCRIPT BY CHRIS BLENDERMANN                        */     
 
 // TADA!  Random video array!
+// NOTE: You can change this array to change what youtube videos are loaded.
 var videos = ['gVKEM4K8J8A','nRBCFsU_KDc','jygQI4xM8Rg','GrOMjUtlKu4'];
 var video = randomIndex(videos);
 
@@ -29,6 +30,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // This function creates an <iframe> (and YouTube player) after the API code loads.
+// NOTE: You can specify the size of the embedded video player.  It is set to "0" by default for audio-only functionality.
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -43,6 +45,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 // The API will call this function when the video player is ready.
+// THE SETVOLUME FUNCTION DEFINES THE VOLUME (N OUT OF 100)
 function onPlayerReady(event) {
     event.target.setVolume(20);
     event.target.playVideo();

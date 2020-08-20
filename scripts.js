@@ -125,7 +125,7 @@ const buttStart = document.querySelector(".buttStart");
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var bigTimer = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -135,15 +135,19 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+            clearInterval(bigTimer);
+            game.endGame();                          // NOTE TO SELF: DEFINE ENDGAME FUNCTION!!!
         }
     }, 1000);
 }
 
 buttStart.addEventListener("click", function() {
-    var timeLimit = 30, // THE SECOND INTEGER REPRESENTS A NUMBER OF
-        display = document.querySelector('.timer');
-    startTimer(timeLimit, display);
+    if(!isGameActive) {
+        var timeLimit = 10,
+            display = document.querySelector('.timer');
+        startTimer(timeLimit, display);
+        game.startGame();
+    }
 });
 //________________________________________________________________________________________
 // END OF "TIMER!" SCRIPT
@@ -225,7 +229,13 @@ var prompts = ['he','po','bu','wo','hi','am','il','ob','os','le','sc','dr','in',
 
 var game;                                                       // MASTER GAME OBJECT VARIABLE
 
+
+
+//======================================================================================================================================
 var isGameActive = false;                                       // MASTER GAMESTATE CONTROL VARIABLE
+//======================================================================================================================================
+
+
 
 class Game {
     constructor (array) {
@@ -243,14 +253,22 @@ class Game {
         array2.push(array1.join(''));
         console.log(array2[(array2.length -1)]," was entered!");
     }
+
+    startGame(){
+        isGameActive = true;
+        console.log("FIRED! class function Game.startGame")                                     // TEST LOGGER
+    }
+
+    endGame(){
+        isGameActive = false;
+        console.log("FIRED! class function Game.endGame")                                       // TEST LOGGER
+    }
 }
 
 function newGame() {
     console.log("FIRED! function newGame")
     game = new Game(prompts);
-    isGameActive = true;
 }
-
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: POSTGAME SCREEN ***-->
 
@@ -303,5 +321,5 @@ function gotoWelcome() {
         screens[i].classList.add("hidden");
     }
     screens[0].classList.remove("hidden");
-    endGame();
+    game.endGame();                                      // NOTE TO SELF: DEFINE ENDGAME FUNCTION!!!
 }

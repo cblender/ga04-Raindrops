@@ -68,7 +68,7 @@ header {
     background-image: url(./img/yuumei\ cityscape.jpg);
     background-position: center;
     background-size: cover;
-    z-index: -10;
+    z-index: -100;
 
 }
 
@@ -76,7 +76,9 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
+
     background: rgba(32, 49, 46, 0.1);
+    z-index: -90;
 }
 
  .screen {
@@ -93,22 +95,26 @@ header {
     z-index: -1;
 }
 
+.hidden {
+    display: none;
+}
+
 .welcome {
-    
+
 }
 
 .ingame {
-    display: none;
+
 }
-    
+
 .endgame {
-    display: none;
+
 }
 
 .rules {
-    display: none;
+
 }
-    
+
 .highscores {
-    display: none;
+    
 }

@@ -43,6 +43,7 @@
         <!--TIMER-->
         <!--PROMPT-->
         <!--PRIMARY INPUT-->
+        <!--BUTTON: BEGIN GAME-->
         
         <!--OBJECT: INPUT HISTORY-->
         <!--Sub-Objects: Each word entered, in historical order.-->
@@ -51,7 +52,7 @@
         <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
         <!--Sub-Objects: Quantities for each category-->
 
-        <div class="screen ingame">
+        <div class="screen ingame hidden">
                 <div class="timer"></div>
                 <div class="prompt"></div>
                 <input class="input"><input>
@@ -90,7 +91,7 @@
         <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
         <!--Sub-Objects: Quantities for each category-->
 
-        <div class="screen endgame">
+        <div class="screen endgame hidden">
                 <div class="history">
                         <!--As per the plan, all words input during the round are displayed programatically here.-->
                         <!--When a displayed word is clicked on, it DOES NOT DISAPPEAR, but it is faded out to show that it will NOT be included in the final score.-->
@@ -110,7 +111,7 @@
         <!--*** CONTAINER: HOW TO PLAY SCREEN-->
         <!--RULES TEXT-->
 
-        <div class="screen rules">
+        <div class="screen rules hidden">
                 <h3>Rules text goes here.</h3>
                 <button class="main buttBack">LEAVE RULES</button>
         </div>
@@ -122,7 +123,7 @@
         <!--Sub-Object: PROMPT & DIFFICULTY-->
         <!--Sub-Object: TOTAL SCORE-->
 
-        <div class="screen highscores">
+        <div class="screen highscores hidden">
                 <div class="scorebox">
                         <!--RECORDS OF ALL GAMES PLAYED THIS SESSION ARE DISPLAYED PROGRAMMATICALLY HERE, RANKED BY TOTAL SCORE.-->
                 </div>

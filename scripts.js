@@ -1,8 +1,8 @@
 /*$$$$$$$                /$$                     /$$                                                
 | $$__  $$              |__/                    | $$                                                
-| $$  \ $$    /$$$$$$    /$$   /$$$$$$$     /$$$$$$$    /$$$$$$    /$$$$$$     /$$$$$$     /$$$$$$$
-| $$$$$$$/   |____  $$  | $$  | $$__  $$   /$$__  $$   /$$__  $  $/$$__  $$   /$$__  $$   /$$_____/
-| $$_ $$/     /$$$$$$$  | $$  | $$  \ $$  | $$  | $$  | $$  \__  / $$  \ $$  | $$  \ $$  |  $$$$$$ 
+| $$  \ $$    /$$$$$$    /$$   /$$$$$$$     /$$$$$$$  /$$ $$$$$   /$$$$$$$    /$$$$$$$    /$$$$$$$$
+| $$$$$$$/   |____  $$  | $$  | $$__  $$   /$$__  $$  \ $$$_  $$ | $$__  $$  | $$__  $$  | $$_____/
+| $$_ $$/     /$$$$$$$  | $$  | $$  \ $$  | $$  | $$  | $$  \__/ | $$  \ $$  | $$  \ $$  |  $$$$$$ 
 | $$ \ $$    /$$__  $$  | $$  | $$  | $$  | $$  | $$  | $$       | $$  | $$  | $$  | $$   \____  $$
 | $$  \ $$  |  $$$$$$$  | $$  | $$  | $$  |  $$$$$$$  | $$       |  $$$$$$/  | $$$$$$$/   /$$$$$$$/
 |__/   \_/   \_______/  |__/  |__/  |__/   \_______/  |__/        \______/   | $$____/   |_______/ 
@@ -41,6 +41,16 @@ console.log("One million, two million, three million, four.");
     //<!--TITLE--> 
     //<!--FOOTER-->
 
+const screens = document.querySelectorAll(".screen");
+
+// NOTE TO SELF ABOUT SCREENS ARRAY:
+// INDEX ZERO - WELCOME SCREEN
+// INDEX ONE -- INGAME SCREEN
+// INDEX TWO -- ENDGAME SCREEN
+// INDEX THREE- RULES SCREEN
+// INDEX FOUR - HIGHSCORES SCREEN
+console.log(screens);                   // KEEP THIS LOGGER AROUND IN CASE YOU NEED TO CHECK THE SCREENS ARRAY LATER
+
 
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: WELCOME SCREEN ***-->
@@ -48,19 +58,45 @@ console.log("One million, two million, three million, four.");
     //<!--BUTTON: NEW GAME-->
     //<!--BUTTON: HOW TO PLAY-->
     //<!--BUTTON: HIGH SCORES-->
+    
+const buttNew = document.querySelector(".buttNew");
+const buttRules = document.querySelector(".buttRules");
+const buttScores = document.querySelector(".buttScores");
+
+console.log(buttNew);                                                           // TEST LOGGER
+console.log(buttRules);                                                         // TEST LOGGER
+console.log(buttScores);                                                        // TEST LOGGER
+
+buttNew.addEventListener("click", gotoGame);
+function gotoGame() {
+    console.log("FIRED! function gotoGame");                                    // TEST LOGGER
+    screens[0].classList.remove("hidden");
+    screens[1].classList.add("hidden");                             
+}
+
+buttRules.addEventListener("click", gotoRules);
+function gotoRules() {
+    console.log("FIRED! function gotoRules");                                   // TEST LOGGER
+}
+
+buttScores.addEventListener("click", gotoScores);
+function gotoScores() {
+    console.log("FIRED! function gotoScores");                                  // TEST LOGGER
+}
 
 
 //___________________________________________________________________________________________________________________
-//<!--*** CONTAINER: GAME SCREEN ***-->
+//<!--*** CONTAINER: INGAME SCREEN ***-->
 
     //<!--TIMER-->
     //<!--PROMPT-->
     //<!--PRIMARY INPUT-->
+    //<!--BUTTON: BEGIN GAME-->
 
 /*$$$$$$$$ /$$                                   /$$  /$$$$$$ /$$    /$$
 |__  $$__/|__/                                  | $$ |__ $$_/| $$$  /$$$
-   | $$    /$$ /$$$$$$/$$$$   /$$$$$$   /$$$$$$ | $$   | $$  | $$ $/$ $$
-   | $$   | $$| $$_  $$_  $$ /$$__  $$ /$$__  $$| $$   | $$  | $$\ $/|$$
+   | $$    /$$ /$$$$$$/$$$$   /$$$$$$ /$$ $$$$$ | $$   | $$  | $$ $/$ $$
+   | $$   | $$| $$_  $$_  $$ /$$__  $$\ $$$_  $$| $$   | $$  | $$\ $/|$$
    | $$   | $$| $$ \ $$ \ $$| $$$$$$$$| $$  \__/|__/   |__/  |__/ \/ |_/
    | $$   | $$| $$ | $$ | $$| $$_____/| $$                              
    | $$   | $$| $$ | $$ | $$|  $$$$$$$| $$       /$$                    
@@ -120,7 +156,7 @@ document.addEventListener('keydown', function (event) {
     }
     else if (event.key === "Backspace") {
         if (event.ctrlKey) {
-            if (input[(input.length -1)] === " ") {
+            if (input[(input.length-1)] === " ") {
                 while(input[(input.length -1)] === " ") {
                 input.pop()
                 }

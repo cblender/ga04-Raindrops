@@ -90,13 +90,6 @@ function gotoScores() {
     screens[0].classList.add("hidden");
 }
 
-// GOTO ENDGAME SCREEN (AT END OF GAME DUH)
-function gotoEndgame(){
-    console.log("FIRED! function gotoEndgame");                                    // TEST LOGGER
-    screens[2].classList.remove("hidden");
-    screens[1].classList.add("hidden");
-}
-
 
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: INGAME SCREEN ***-->
@@ -145,6 +138,7 @@ function startTimer(duration, display) {
             clearInterval(bigTimer);
             game.endGame();                          // NOTE TO SELF: DEFINE ENDGAME FUNCTION!!!
             gotoEndgame();
+            entriesToButtons();
         }
     }, 1000);
 }
@@ -317,6 +311,18 @@ function newGame() {
     // PASS PROMPT TO HTML DISPLAY ELEMENT:
     document.querySelector(".prompt").innerText = game.prompt;
 }
+
+// GOTO ENDGAME SCREEN (AT END OF GAME DUH)
+function gotoEndgame(){
+    console.log("FIRED! function gotoEndgame");                                    // TEST LOGGER
+    screens[2].classList.remove("hidden");
+    screens[1].classList.add("hidden");
+}
+
+
+
+
+
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: POSTGAME SCREEN ***-->
 
@@ -330,7 +336,37 @@ function newGame() {
     //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
     //<!--Sub-Objects: Quantities for each category-->
 
+let entries = document.getElementsByClassName("entry")
 
+function entriesToButtons() {
+    for (i=0; i<entries.length; i++) {
+        entries[i].addEventListener("click", removeEntry);
+    }
+}
+
+function removeEntry() {
+    console.log("FIRED! function removeEntry for item ");
+}
+
+const buttSubmit = document.querySelector(".buttSubmit");
+
+buttSubmit.addEventListener("click", submitScore);
+
+function submitScore() {
+    console.log("FIRED! function submitScore");                     // TEST LOGGER
+    console.log(game.history);                                      // TEST LOGGER
+    let sum = 0;
+    for (i=0; i<game.history.length; i++) {
+        // ADDS AN INTEGER EQUAL TO THE LENGTH OF THE ENTRY TO "SUM"
+        console.log(game.history[i].length);                        // TEST LOGGER
+        sum = sum + game.history[i].length; 
+    }
+    let total = document.querySelector(".totalScore");
+    let node = document.createElement("h3");
+    let textnode = document.createTextNode("Your total score is "+sum+"!");
+    node.appendChild(textnode);
+    total.appendChild(node);
+}
 
 
 //___________________________________________________________________________________________________________________

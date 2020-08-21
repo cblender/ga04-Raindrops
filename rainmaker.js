@@ -46,7 +46,7 @@ function onYouTubeIframeAPIReady() {
 
 // The API will call this function when the video player is ready.
 // The SETVOLUME method defines the default volume (out of 100).  Recommend NEVER going over 50 for background sound.
-var volume = 20;
+var volume = 13;
 
 function onPlayerReady(event) {
     event.target.setVolume(volume);

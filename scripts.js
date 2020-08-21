@@ -199,7 +199,8 @@ document.addEventListener('keydown', function (event) {
     
     else if (event.key === "Enter") {
         if(isGameActive){
-            game.sendInput(input, game.history);  // NOTE TO SELF:  DECLARE FUNCTION "SENDINPUT"
+            game.sendInput(input);  // NOTE TO SELF:  DECLARE FUNCTION "SENDINPUT"
+        
         }
         else {
             console.log(input.join(''));                                        // TEST LOGGER
@@ -241,6 +242,11 @@ document.addEventListener('keydown', function (event) {
 
 
 //======================================================================================================================================
+//    var log = document.querySelectorAll(".history")                // DISPLAY TARGET FOR ALL INPUT ITEMS
+//======================================================================================================================================
+
+
+//======================================================================================================================================
     var isGameActive = false;                                       // MASTER GAMESTATE CONTROL VARIABLE
 //======================================================================================================================================
 
@@ -264,6 +270,18 @@ class Game {
         this.history.push(array.join(''));
         this.keeplist.push(true);
 
+        // APPEND NEW this.history[end] item to HISTORY DOM OBJECT
+        let node = document.createElement("p");
+        node.classList.add("entry");
+        let textnode = document.createTextNode(this.history[(this.history.length - 1)]);
+        node.appendChild(textnode);
+        
+        var target = document.getElementsByClassName("history");
+        console.log(target);                                            // TEST LOGGER
+        // NOTE TO SELF: REPLACE THIS JANK WITH A PROPER FOR LOOP FOR THE TARGET ARRAY
+        target[0].appendChild(node);
+        target[1].appendChild(node);
+
         console.log(this.history[(this.history.length -1)]," was entered!");
         console.log("History: ",(this.history.length)," entries.  Keeplist: ",(this.keeplist.length)," entries.");
     }
@@ -275,10 +293,6 @@ class Game {
     startGame(){
         isGameActive = true;
         console.log("FIRED! class function Game.startGame")                                     // TEST LOGGER
-
-        // PASS PROMPT TO HTML DISPLAY ELEMENT:
-        document.querySelector(".prompt").innerText = this.prompt;
-
     }
 
     endGame(){
@@ -291,6 +305,9 @@ class Game {
 function newGame() {
     console.log("FIRED! function newGame")
     game = new Game(prompts);
+
+    // PASS PROMPT TO HTML DISPLAY ELEMENT:
+    document.querySelector(".prompt").innerText = game.prompt;
 }
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: POSTGAME SCREEN ***-->

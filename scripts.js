@@ -63,14 +63,14 @@ const buttNew = document.querySelector(".buttNew");
 const buttRules = document.querySelector(".buttRules");
 const buttScores = document.querySelector(".buttScores");
 
-console.log(buttNew);                                                           // TEST LOGGER
-console.log(buttRules);                                                         // TEST LOGGER
-console.log(buttScores);                                                        // TEST LOGGER
+console.log(buttNew);                                                                       // TEST LOGGER
+console.log(buttRules);                                                                     // TEST LOGGER
+console.log(buttScores);                                                                    // TEST LOGGER
 
 // STATECHANGE BUTTONS LETS GET IT
 buttNew.addEventListener("click", gotoGame);
 function gotoGame() {
-    console.log("FIRED! function gotoGame");                                    // TEST LOGGER
+    console.log("FIRED! function gotoGame");                                                // TEST LOGGER
     screens[1].classList.remove("hidden");
     screens[0].classList.add("hidden");
     newGame();                                      // NOTE TO SELF:  DECLARE NEWGAME FUNCTION!!                            
@@ -78,14 +78,14 @@ function gotoGame() {
 
 buttRules.addEventListener("click", gotoRules);
 function gotoRules() {
-    console.log("FIRED! function gotoRules");                                   // TEST LOGGER
+    console.log("FIRED! function gotoRules");                                               // TEST LOGGER
     screens[3].classList.remove("hidden");
     screens[0].classList.add("hidden");
 }
 
 buttScores.addEventListener("click", gotoScores);
 function gotoScores() {
-    console.log("FIRED! function gotoScores");                                  // TEST LOGGER
+    console.log("FIRED! function gotoScores");                                              // TEST LOGGER
     screens[4].classList.remove("hidden");
     screens[0].classList.add("hidden");
 }
@@ -210,7 +210,7 @@ document.addEventListener('keydown', function (event) {
         
         }
         else {
-            console.log(input.join(''));                                        // TEST LOGGER
+            console.log(input.join(''));                                                        // TEST LOGGER
         }
         input = [];
     }                          
@@ -299,7 +299,9 @@ class Game {
 
     startGame(){
         isGameActive = true;
-        console.log("FIRED! class function Game.startGame")                                     // TEST LOGGER
+        console.log("FIRED! class function Game.startGame");                                     // TEST LOGGER
+        let inp = document.getElementsByClassName(".input");
+        inp[0].innerText = "Start typing!";
     }
 
     endGame(){
@@ -319,7 +321,7 @@ function newGame() {
 
 // GOTO ENDGAME SCREEN (AT END OF GAME DUH)
 function gotoEndgame() {
-    console.log("FIRED! function gotoEndgame");                                    // TEST LOGGER
+    console.log("FIRED! function gotoEndgame");                                                 // TEST LOGGER
     screens[2].classList.remove("hidden");
     screens[1].classList.add("hidden");
 }
@@ -354,7 +356,8 @@ function entriesToButtons() {
 }
 
 function removeEntry() {
-    console.log("FIRED! function removeEntry for item ");
+    console.log("FIRED! function removeEntry for item ");           // NOTE TO SELF: FIX RELATIONSHIP BETWEEN GAME.HISTORY, GAME.KEEPLIST, AND DOM "ENTRY" OBJECTS
+                                                                    // ALSO:  Ask Tosin for help on preserving the ability to manipulate individual entries.
 }
 
 const buttSubmit = document.querySelector(".buttSubmit");
@@ -362,12 +365,12 @@ const buttSubmit = document.querySelector(".buttSubmit");
 buttSubmit.addEventListener("click", submitScore);
 
 function submitScore() {
-    console.log("FIRED! function submitScore");                     // TEST LOGGER
-    console.log(game.history);                                      // TEST LOGGER
+    console.log("FIRED! function submitScore");                                         // TEST LOGGER
+    console.log(game.history);                                                          // TEST LOGGER
     let sum = 0;
     for (i=0; i<game.history.length; i++) {
         // ADDS AN INTEGER EQUAL TO THE LENGTH OF THE ENTRY TO "SUM"
-        console.log(game.history[i].length);                        // TEST LOGGER
+        console.log(game.history[i].length);                                            // TEST LOGGER
         sum = sum + game.history[i].length; 
     }
     let total = document.querySelector(".totalScore");

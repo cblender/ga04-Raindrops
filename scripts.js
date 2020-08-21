@@ -143,7 +143,7 @@ function startTimer(duration, display) {
 
 buttStart.addEventListener("click", function() {
     if(!isGameActive) {
-        var timeLimit = 10,
+        var timeLimit = 90,
             display = document.querySelector('.timer');
         startTimer(timeLimit, display);
         game.startGame();
@@ -224,10 +224,14 @@ document.addEventListener('keydown', function (event) {
  ___________________________________________                                          
 /_________________________________________*/                
 
+//======================================================================================================================================
 // BEHOLD THE MIGHTY ARRAY OF VARIOUS LETTERS:
 var prompts = ['he','po','bu','wo','hi','am','il','ob','os','le','sc','dr','in','ger','com','lit','sou','ent','den','sle','car','alt','fra','mea','pre','par','con','com','str'];
+//======================================================================================================================================
 
+//======================================================================================================================================
 var game;                                                       // MASTER GAME OBJECT VARIABLE
+//======================================================================================================================================
 
 
 
@@ -240,18 +244,28 @@ var isGameActive = false;                                       // MASTER GAMEST
 class Game {
     constructor (array) {
         this.prompt = array[Math.floor(Math.random()*array.length)];
+        console.log(this.prompt);                                                               // TEST LOGGER
         this.history = [];
+        this.keeplist = [];
         this.player = '';
+        this.finished = false;
     }
 
-    sendInput(array1, array2) {
-        for (i=0; i<array1.length; i++) {
-            if (array1[i] === " ") {
-                array1.splice(i, 1);
+    sendInput(array) {
+        for (i=0; i<array.length; i++) {
+            if (array[i] === " ") {
+                array.splice(i, 1);
             }
         }
-        array2.push(array1.join(''));
-        console.log(array2[(array2.length -1)]," was entered!");
+        this.history.push(array.join(''));
+        this.keeplist.push(true);
+
+        console.log(this.history[(this.history.length -1)]," was entered!");
+        console.log("History: ",(this.history.length)," entries.  Keeplist: ",(this.keeplist.length)," entries.");
+    }
+
+    rmInput(n) {
+
     }
 
     startGame(){
@@ -263,6 +277,7 @@ class Game {
         isGameActive = false;
         console.log("FIRED! class function Game.endGame")                                       // TEST LOGGER
     }
+
 }
 
 function newGame() {

@@ -45,7 +45,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 // The API will call this function when the video player is ready.
-// THE SETVOLUME FUNCTION DEFINES THE VOLUME (N OUT OF 100)
+// The SETVOLUME method defines the default volume (out of 100).  Recommend NEVER going over 50 for background sound.
 function onPlayerReady(event) {
     event.target.setVolume(20);
     event.target.playVideo();
@@ -69,6 +69,8 @@ function startVideo() {
     player.playVideo();
 }
 
+
+
                                  /*$                         /$$          
                                 | $$                        | $$          
   /$$$$$$$  /$$$$$$  /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ | $$  /$$$$$$$
@@ -78,9 +80,9 @@ function startVideo() {
 |  $$$$$$$|  $$$$$$/| $$  | $$  |  $$$$/| $$      |  $$$$$$/| $$ /$$$$$$$/
  \_______/ \______/ |__/  |__/   \___/  |__/       \______/ |__/|______*/
 
-// AUDIO FX STATE MANAGER (MUTED/UNMUTED)
-
-var muted = false;
+//=======================================================================================
+var muted = false;                              // AUDIO FX STATE MANAGER (MUTED/UNMUTED)
+//=======================================================================================
 
  // BUTTON: STOP
  // QUERYSELECTOR SHOULD BE TARGETED TO THE APPROPRIATE CLASSNAME FOR THE CURRENT PROJECT

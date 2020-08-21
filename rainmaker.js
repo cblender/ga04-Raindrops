@@ -73,7 +73,8 @@ function startVideo() {
 }
 
 // HOTFIX TO PREVENT VIDEO FROM FAILING TO PLAY ON PAGELOAD
-setTimeout(startVideo(), 1069);
+// setTimeout(startVideo(), 1069);
+// THE HOTFIX KILLS THE BUTTONS OMEGARIP
 
 
 

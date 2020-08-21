@@ -136,9 +136,14 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             clearInterval(bigTimer);
-            game.endGame();                          // NOTE TO SELF: DEFINE ENDGAME FUNCTION!!!
-            gotoEndgame();
-            entriesToButtons();
+            if (isGameActive) {
+                gotoEndgame();
+                entriesToButtons();
+            }
+            else if (!isGameActive) {
+                clearHistory();
+            }
+            game.endGame();
         }
     }, 1000);
 }
@@ -313,10 +318,14 @@ function newGame() {
 }
 
 // GOTO ENDGAME SCREEN (AT END OF GAME DUH)
-function gotoEndgame(){
+function gotoEndgame() {
     console.log("FIRED! function gotoEndgame");                                    // TEST LOGGER
     screens[2].classList.remove("hidden");
     screens[1].classList.add("hidden");
+}
+
+function clearHistory() {
+    console.log("FIRED! function clearHistory");
 }
 
 

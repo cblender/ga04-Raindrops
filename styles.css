@@ -16,7 +16,7 @@ h1 {
 }
 
 h3 {
-    color: #dadbdb;
+    color: #d8d9e2;
     font-family: 'Loved by the King', cursive;
     font-size: 50px;
     font-weight: 400;
@@ -24,10 +24,12 @@ h3 {
 }
 
 p {
-    color: white;
+    color: #d8d9e2;
     font-family: Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 

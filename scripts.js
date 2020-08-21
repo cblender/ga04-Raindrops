@@ -300,8 +300,8 @@ class Game {
     startGame(){
         isGameActive = true;
         console.log("FIRED! class function Game.startGame");                                     // TEST LOGGER
-        let inp = document.getElementsByClassName(".input");
-        inp[0].innerText = "Start typing!";
+        mainIn.innerText = "Start Typing!";
+
     }
 
     endGame(){
@@ -314,6 +314,7 @@ class Game {
 function newGame() {
     console.log("FIRED! function newGame")
     game = new Game(prompts);
+    mainIn.innerText = "Hit 'Start Game' when you're ready!";
 
     // PASS PROMPT TO HTML DISPLAY ELEMENT:
     document.querySelector(".prompt").innerText = game.prompt;

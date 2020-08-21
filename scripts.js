@@ -145,7 +145,7 @@ function startTimer(duration, display) {
 
 buttStart.addEventListener("click", function() {
     if(!isGameActive) {
-        var timeLimit = 60,
+        var timeLimit = 30,
             display = document.querySelector('.timer');
         startTimer(timeLimit, display);
         game.startGame();

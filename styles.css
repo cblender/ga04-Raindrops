@@ -47,6 +47,8 @@ footer {
     position: absolute;
     bottom: 0px;
     left: 25px;
+
+    z-index: 100;
 }
 
 header {

@@ -224,21 +224,21 @@ document.addEventListener('keydown', function (event) {
  ___________________________________________                                          
 /_________________________________________*/                
 
-//======================================================================================================================================
-// BEHOLD THE MIGHTY ARRAY OF VARIOUS LETTERS:
-var prompts = ['he','po','bu','wo','hi','am','il','ob','os','le','sc','dr','in','ger','com','lit','sou','ent','den','sle','car','alt','fra','mea','pre','par','con','com','str'];
-//======================================================================================================================================
 
 //======================================================================================================================================
-var game;                                                       // MASTER GAME OBJECT VARIABLE
+    // BEHOLD THE MIGHTY ARRAY OF VARIOUS LETTERS:
+    var prompts = ['he','po','bu','wo','hi','am','il','ob','os','le','sc','dr','in','ger','com','lit','sou','ent','den','sle','car','alt','fra','mea','pre','par','con','com','str'];
 //======================================================================================================================================
 
 
+//======================================================================================================================================
+    var game;                                                       // MASTER GAME OBJECT VARIABLE
+//======================================================================================================================================
+
 
 //======================================================================================================================================
-var isGameActive = false;                                       // MASTER GAMESTATE CONTROL VARIABLE
+    var isGameActive = false;                                       // MASTER GAMESTATE CONTROL VARIABLE
 //======================================================================================================================================
-
 
 
 class Game {
@@ -271,6 +271,10 @@ class Game {
     startGame(){
         isGameActive = true;
         console.log("FIRED! class function Game.startGame")                                     // TEST LOGGER
+
+        // PASS PROMPT TO HTML DISPLAY ELEMENT:
+        document.querySelector(".prompt").innerText = this.prompt;
+
     }
 
     endGame(){
@@ -331,7 +335,7 @@ for (i=0; i<backButts.length; i++) {
 }
 
 function gotoWelcome() {
-    console.log("FIRED! function gotoGame");                                    // TEST LOGGER
+    console.log("FIRED! function gotoWelcome");                                    // TEST LOGGER
     for (i=1; i<screens.length; i++){
         screens[i].classList.add("hidden");
     }

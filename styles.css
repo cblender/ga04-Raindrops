@@ -107,9 +107,16 @@ header {
 
 }
 
+.prompt {
+    font-size: 36px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
 .timer {
-    font-family: sans-serif;
-    font-size: 24px;
+    font-size: 36px;
+    font-family: Helvetica, sans-serif;
     font-weight: bold;
     color: white;
 }

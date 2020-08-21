@@ -90,6 +90,13 @@ function gotoScores() {
     screens[0].classList.add("hidden");
 }
 
+// GOTO ENDGAME SCREEN (AT END OF GAME DUH)
+function gotoEndgame(){
+    console.log("FIRED! function gotoEndgame");                                    // TEST LOGGER
+    screens[2].classList.remove("hidden");
+    screens[1].classList.add("hidden");
+}
+
 
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: INGAME SCREEN ***-->
@@ -137,13 +144,14 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             clearInterval(bigTimer);
             game.endGame();                          // NOTE TO SELF: DEFINE ENDGAME FUNCTION!!!
+            gotoEndgame();
         }
     }, 1000);
 }
 
 buttStart.addEventListener("click", function() {
     if(!isGameActive) {
-        var timeLimit = 90,
+        var timeLimit = 10,
             display = document.querySelector('.timer');
         startTimer(timeLimit, display);
         game.startGame();
@@ -321,6 +329,8 @@ function newGame() {
     //<!--OBJECT: CATEGORIES-->
     //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
     //<!--Sub-Objects: Quantities for each category-->
+
+
 
 
 //___________________________________________________________________________________________________________________

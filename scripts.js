@@ -332,8 +332,15 @@ function clearHistory() {
 }
 
 
+/*
 
+|$$$$$                  $$
+|$$ |$$ /$$$$   $$$$, $$$$$$
+|$$$$$ |$$ |$$  \$\     $$
+|$$    |$$ |$$    \$\   $$
+|$$     \$$$$  '$$$$$    $$$
 
+*/
 
 //___________________________________________________________________________________________________________________
 //<!--*** CONTAINER: POSTGAME SCREEN ***-->
@@ -361,6 +368,20 @@ function removeEntry() {
                                                                     // ALSO:  Ask Tosin for help on preserving the ability to manipulate individual entries.
 }
 
+// NOTES FROM TOSIN:
+// Instead of just pushing the INPUT to a new HISTORY index,
+// Instead push OBJECTS  with a property "isRight" set to TRUE when constructed.
+/*
+arrayOfWords.forEach(word => {
+    //display word
+    document.querySelector(".class").innerHTML = word.value
+    button.addEventListener('click', () => {
+        word.isRight = false
+    })
+})
+
+*/
+
 const buttSubmit = document.querySelector(".buttSubmit");
 
 buttSubmit.addEventListener("click", submitScore);
@@ -368,17 +389,20 @@ buttSubmit.addEventListener("click", submitScore);
 function submitScore() {
     console.log("FIRED! function submitScore");                                         // TEST LOGGER
     console.log(game.history);                                                          // TEST LOGGER
-    let sum = 0;
-    for (i=0; i<game.history.length; i++) {
-        // ADDS AN INTEGER EQUAL TO THE LENGTH OF THE ENTRY TO "SUM"
-        console.log(game.history[i].length);                                            // TEST LOGGER
-        sum = sum + game.history[i].length; 
+    if(!game.finished) {
+        let sum = 0;
+        for (i=0; i<game.history.length; i++) {
+            // ADDS AN INTEGER EQUAL TO THE LENGTH OF THE ENTRY TO "SUM"
+            console.log(game.history[i].length);                                            // TEST LOGGER
+            sum = sum + game.history[i].length; 
+        }
+        let total = document.querySelector(".totalScore");
+        let node = document.createElement("h3");
+        let textnode = document.createTextNode("Your total score is "+sum+"!");
+        node.appendChild(textnode);
+        total.appendChild(node);
+        game.finished = true;
     }
-    let total = document.querySelector(".totalScore");
-    let node = document.createElement("h3");
-    let textnode = document.createTextNode("Your total score is "+sum+"!");
-    node.appendChild(textnode);
-    total.appendChild(node);
 }
 
 

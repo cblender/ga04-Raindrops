@@ -166,8 +166,9 @@ buttStart.addEventListener("click", function() {
 /__________________ |  $$$$$$/_________________________________________________________/
                      \_____*/                                      
 
-let test = document.querySelector(".testInput")
-console.log(test.innerText);
+let testIn = document.querySelector(".testInput")
+let mainIn = document.querySelector(".input")
+console.log(testIn.innerText);
 let input = [];
 
 document.addEventListener('keydown', function (event) {             
@@ -205,7 +206,10 @@ document.addEventListener('keydown', function (event) {
         }
         input = [];
     }                          
-    test.innerText = input.join('');
+    testIn.innerText = input.join('');
+    if(isGameActive) {
+        mainIn.innerText = input.join('');
+    }
     console.log(event.keyCode);
 });
 //________________________________________________________________________________________

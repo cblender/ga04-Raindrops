@@ -72,7 +72,8 @@ function startVideo() {
     player.playVideo();
 }
 
-setTimeout(startVideo(), 2169);
+// HOTFIX TO PREVENT VIDEO FROM FAILING TO PLAY ON PAGELOAD
+setTimeout(startVideo(), 1069);
 
 
 

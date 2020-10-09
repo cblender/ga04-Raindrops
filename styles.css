@@ -24,6 +24,7 @@ h3 {
 }
 
 p {
+  display: inline;
   color: #d8d9e2;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
@@ -159,6 +160,12 @@ header {
   height: 69px;
 }
 
+.postgame {
+  width: 500px;
+  height: 169px;
+  text-align: center;
+}
+
 .prompt {
   font-size: 36px;
   font-family: Helvetica, sans-serif;
@@ -177,8 +184,6 @@ header {
 }
 
 .totalScore {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
 }
 
 .rules {

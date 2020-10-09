@@ -132,7 +132,7 @@ function startTimer(duration, display) {
       clearInterval(bigTimer);
       if (isGameActive) {
         gotoEndgame();
-        entriesToButtons();
+        game.entriesToButtons();
       } else if (!isGameActive) {
         clearHistory();
       }
@@ -253,7 +253,7 @@ var prompts = [
 //======================================================================================================================================
 
 //======================================================================================================================================
-var game; // MASTER GAME OBJECT VARIABLE
+let game; // MASTER GAME OBJECT VARIABLE
 //======================================================================================================================================
 
 //======================================================================================================================================
@@ -261,7 +261,7 @@ var game; // MASTER GAME OBJECT VARIABLE
 //======================================================================================================================================
 
 //======================================================================================================================================
-var isGameActive = false; // MASTER GAMESTATE CONTROL VARIABLE
+let isGameActive = false; // MASTER GAMESTATE CONTROL VARIABLE
 //======================================================================================================================================
 
 class Game {
@@ -287,7 +287,7 @@ class Game {
     let node = document.createElement("p");
     node.classList.add("entry");
     let textnode = document.createTextNode(
-      this.history[this.history.length - 1]
+      String(this.history[this.history.length - 1] + ", ")
     );
     node.appendChild(textnode);
 
@@ -314,11 +314,32 @@ class Game {
     console.log("FIRED! class function Game.startGame"); // TEST LOGGER
     mainIn.innerText = "Start Typing!";
     document.querySelector(".prompt").innerText = game.prompt;
+    document.querySelector(".buttStart").classList.add("hidden");
   }
 
   endGame() {
     isGameActive = false;
     console.log("FIRED! class function Game.endGame"); // TEST LOGGER
+    document.querySelector(".buttStart").classList.remove("hidden");
+  }
+
+  entriesToButtons() {
+    let entries = document.getElementsByClassName("entry");
+    console.log("FIRED: entriesToButtons: ");
+    console.log(entries);
+    for (i = 0; i < entries.length; i++) {
+      let numClass = "entry" + String(i + 1);
+      entries[i].classList.add(numClass);
+      entries[i].addEventListener("click", function () {
+        console.log("FIRED! function removeEntry for item " + i);
+        let numClass = "entry" + String(i + 1);
+        console.log("HISTORY: " + this.history);
+        //   this.history.splice(i, 1);
+        let entry = document.querySelector(numClass);
+        console.log(entry);
+        entry.classList.add("hidden");
+      });
+    }
   }
 }
 
@@ -366,18 +387,8 @@ function clearHistory() {
 //<!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
 //<!--Sub-Objects: Quantities for each category-->
 
-let entries = document.getElementsByClassName("entry");
-
-function entriesToButtons() {
-  for (i = 0; i < entries.length; i++) {
-    entries[i].addEventListener("click", removeEntry);
-  }
-}
-
-function removeEntry() {
-  console.log("FIRED! function removeEntry for item "); // NOTE TO SELF: FIX RELATIONSHIP BETWEEN GAME.HISTORY, GAME.KEEPLIST, AND DOM "ENTRY" OBJECTS
-  // ALSO:  Ask Tosin for help on preserving the ability to manipulate individual entries.
-}
+// NOTE TO SELF: FIX RELATIONSHIP BETWEEN GAME.HISTORY, GAME.KEEPLIST, AND DOM "ENTRY" OBJECTS
+// ALSO:  Ask Tosin for help on preserving the ability to manipulate individual entries.
 
 // NOTES FROM TOSIN:
 // Instead of just pushing the INPUT to a new HISTORY index,
@@ -399,7 +410,7 @@ buttSubmit.addEventListener("click", submitScore);
 
 function submitScore() {
   console.log("FIRED! function submitScore"); // TEST LOGGER
-  console.log(game.history); // TEST LOGGER
+  console.log("HISTORY: " + game.history); // TEST LOGGER
   if (!game.finished) {
     let sum = 0;
     for (i = 0; i < game.history.length; i++) {

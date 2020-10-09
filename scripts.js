@@ -318,8 +318,8 @@ class Game {
   }
 
   endGame() {
-    isGameActive = false;
     console.log("FIRED! class function Game.endGame"); // TEST LOGGER
+    isGameActive = false;
     document.querySelector(".buttStart").classList.remove("hidden");
   }
 
@@ -420,9 +420,11 @@ function submitScore() {
     }
     let total = document.querySelector(".totalScore");
     let node = document.createElement("h3");
+    node.classList.add("finalScore");
     let textnode = document.createTextNode("Your total score is " + sum + "!");
     node.appendChild(textnode);
     total.appendChild(node);
+    recordScore(sum);
     game.finished = true;
   }
 }
@@ -439,6 +441,15 @@ function submitScore() {
 //<!--Sub-Object: PLAYER NAME-->
 //<!--Sub-Object: PROMPT & DIFFICULTY-->
 //<!--Sub-Object: TOTAL SCORE-->
+
+function recordScore(score) {
+  console.log("FIRED! function recordScore");
+  let scoreList = document.querySelector(".scorebox");
+  let node = document.createElement("h3");
+  let textnode = document.createTextNode(score);
+  node.appendChild(textnode);
+  scoreList.appendChild(node);
+}
 
 /*$$                                              
 | $$                                              
@@ -458,6 +469,12 @@ for (i = 0; i < backButts.length; i++) {
 
 function gotoWelcome() {
   console.log("FIRED! function gotoWelcome"); // TEST LOGGER
+  document.querySelectorAll(".entry").forEach(function (a) {
+    a.remove();
+  });
+  document.querySelectorAll(".finalScore").forEach(function (a) {
+    a.remove();
+  });
   for (i = 1; i < screens.length; i++) {
     screens[i].classList.add("hidden");
   }

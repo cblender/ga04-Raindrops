@@ -1,155 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-        <title>raindrops.</title>
-        <meta name="description" content="General Assembly SEI-39, Project 4, Raindrops: a speed typing game.">
-        <meta name="author" content="Chris Blendermann">
+    <title>raindrops.</title>
+    <meta
+      name="description"
+      content="General Assembly SEI-39, Project 4, Raindrops: a speed typing game."
+    />
+    <meta name="author" content="Chris Blendermann" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
 
-        <link rel="stylesheet" href="./styles.css">
-    </head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** UNCHANGING OBJECTS ***-->
-        <!--TITLE-->
-        <!--FOOTER-->
+  <!--____________________________________________________________________________________________________________________________________________-->
+  <!--*** UNCHANGING OBJECTS ***-->
+  <!--TITLE-->
+  <!--FOOTER-->
 
-        <header>
-                <h1>raindrops</h1>
-        </header>
+  <header>
+    <h1>raindrops</h1>
+  </header>
 
-        <body>
-                <div class="background"><!--THIS OBJECT WILL HOLD THE BACKGROUND IMAGE AND/OR ANIMATIONS--></div>
-                <div class="solid"></div>
+  <body>
+    <div class="background">
+      <!--THIS OBJECT WILL HOLD THE BACKGROUND IMAGE AND/OR ANIMATIONS-->
+    </div>
+    <div class="solid"></div>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** CONTAINER: WELCOME SCREEN ***-->
-        <!--BUTTON: NEW GAME-->
-        <!--BUTTON: HOW TO PLAY-->
-        <!--BUTTON: HIGH SCORES-->
+    <!--____________________________________________________________________________________________________________________________________________-->
+    <!--*** CONTAINER: WELCOME SCREEN ***-->
+    <!--BUTTON: NEW GAME-->
+    <!--BUTTON: HOW TO PLAY-->
+    <!--BUTTON: HIGH SCORES-->
 
-        <div class="screen welcome">
-                <button class="main buttNew">NEW GAME</button>
-                <button class="main buttRules">HOW TO PLAY</button>
-                <button class="main buttScores">HIGH SCORES</button>
-                <div id="player"></div>
+    <div class="screen welcome">
+      <button class="main buttNew stdBack">New Game</button>
+      <button class="main buttRules stdBack">How to Play</button>
+      <button class="main buttScores stdBack">High Scores</button>
+      <div id="player"></div>
+    </div>
+
+    <!--____________________________________________________________________________________________________________________________________________-->
+    <!--*** CONTAINER: GAME SCREEN ***-->
+    <!--TIMER-->
+    <!--PROMPT-->
+    <!--PRIMARY INPUT-->
+    <!--BUTTON: BEGIN GAME-->
+    <!--BUTTON: LEAVE GAME-->
+
+    <!--OBJECT: INPUT HISTORY-->
+    <!--Sub-Objects: Each word entered, in historical order.-->
+
+    <!--OBJECT: CATEGORIES-->
+    <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
+    <!--Sub-Objects: Quantities for each category-->
+
+    <div class="screen ingame hidden">
+      <div class="game stdDisplay stdBack">
+        <div class="gameLine">
+          <div class="timer"></div>
         </div>
+        <div class="gameLine prompt"></div>
+        <div class="gameLine input"></div>
+      </div>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** CONTAINER: GAME SCREEN ***-->
-        <!--TIMER-->
-        <!--PROMPT-->
-        <!--PRIMARY INPUT-->
-        <!--BUTTON: BEGIN GAME-->
-        <!--BUTTON: LEAVE GAME-->
-        
-        <!--OBJECT: INPUT HISTORY-->
-        <!--Sub-Objects: Each word entered, in historical order.-->
+      <div class="history">
+        <!--As per the plan, divs containing individual words will be programatically added here.-->
+      </div>
 
-        <!--OBJECT: CATEGORIES-->
-        <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
-        <!--Sub-Objects: Quantities for each category-->
+      <div class="categories">
+        <div class="word3"></div>
+        <div class="word4"></div>
+        <div class="word5"></div>
+        <div class="word6"></div>
+        <div class="word7"></div>
+        <div class="word8"></div>
+        <div class="word9"></div>
+        <div class="word10"></div>
+        <div class="word11"></div>
+        <div class="word12"></div>
+        <!--NOTE: THIS LAST CATEGORY CATCHES WORDS 12 CHARACTERS OR LONGER!-->
+      </div>
 
-        <div class="screen ingame hidden">
-                <div class="timer"></div>
-                <div class="prompt"></div>
-                <div class="input"></div>
+      <div class="buttRow">
+        <button class="main buttStart stdBack">Start Game</button
+        ><button class="main buttBack stdBack">Leave Game</button>
+      </div>
+    </div>
 
-                <div class="history">
-                        <!--As per the plan, divs containing individual words will be programatically added here.-->
-                </div>
+    <!--____________________________________________________________________________________________________________________________________________-->
+    <!--*** CONTAINER: POSTGAME SCREEN ***-->
+    <!--BUTTONS!!  SO MANY BUTTONS!!-->
+    <!--Sub-Objects: Each entry from the INPUT HISTORY object in the GAME screen becomes its own button.-->
 
-                <div class="categories">
-                        <div class="word3"></div>
-                        <div class="word4"></div>
-                        <div class="word5"></div>
-                        <div class="word6"></div>
-                        <div class="word7"></div>
-                        <div class="word8"></div>
-                        <div class="word9"></div>
-                        <div class="word10"></div>
-                        <div class="word11"></div>
-                        <div class="word12"></div>  <!--NOTE: THIS LAST CATEGORY CATCHES WORDS 12 CHARACTERS OR LONGER!-->
-                </div>
+    <!--BUTTON: "SUBMIT"-->
+    <!--TOTAL SCORE-->
 
-                <button class="main buttStart">START GAME</button>
-                <button class="main buttBack">LEAVE GAME</button>
+    <!--OBJECT: CATEGORIES-->
+    <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
+    <!--Sub-Objects: Quantities for each category-->
 
-        </div>
+    <div class="screen endgame hidden">
+      <div class="history">
+        <!--As per the plan, all words input during the round are displayed programatically here.-->
+        <!--When a displayed word is clicked on, it DOES NOT DISAPPEAR, but it is faded out to show that it will NOT be included in the final score.-->
+      </div>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** CONTAINER: POSTGAME SCREEN ***-->
-        <!--BUTTONS!!  SO MANY BUTTONS!!-->
-        <!--Sub-Objects: Each entry from the INPUT HISTORY object in the GAME screen becomes its own button.-->
+      <button class="main buttSubmit stdBack">Submit</button>
 
-        <!--BUTTON: "SUBMIT"-->
-        <!--TOTAL SCORE-->
+      <div class="totalScore stdBack stdDisplay"></div>
 
-        <!--OBJECT: CATEGORIES-->
-        <!--Sub-Objects: 3 Letters, 4 Letters, 5 Letters, 6 Letters, 7 Letters, 8 Letters, 9 Letters, 10 Letters, 11 Letters, 12+ Letters-->
-        <!--Sub-Objects: Quantities for each category-->
+      <div>
+        <!--COPY THE STRUCTURE FROM THE GAME SCREEN FOR CATEGORIES AND QUANTITIES OF WORDS-->
+      </div>
 
-        <div class="screen endgame hidden">
-                <div class="history">
-                        <!--As per the plan, all words input during the round are displayed programatically here.-->
-                        <!--When a displayed word is clicked on, it DOES NOT DISAPPEAR, but it is faded out to show that it will NOT be included in the final score.-->
-                </div>
+      <button class="main buttBack stdBack">Leave Game</button>
+    </div>
 
-                <button class="buttSubmit">SUBMIT</button>
+    <!--____________________________________________________________________________________________________________________________________________-->
+    <!--*** CONTAINER: HOW TO PLAY SCREEN-->
+    <!--RULES TEXT-->
 
-                <div class="totalScore"></div>
+    <div class="screen rules hidden">
+      <div class="stdDisplay stdBack">
+        <p>
+          Raindrops is a game in which the player is given a set of letters,
+          ranging from two to four characters long.<br /><br />
+          The player is then given a period of time to type in as many words as
+          they can think of that begin with the specified string of letters.<br /><br />
+          Striking the ["Enter"] key inputs the current string of typed letters
+          to the game.
+        </p>
+      </div>
+      <button class="main buttBack stdBack">Leave Rules</button>
+    </div>
 
-                <div> <!--COPY THE STRUCTURE FROM THE GAME SCREEN FOR CATEGORIES AND QUANTITIES OF WORDS--></div>
+    <!--____________________________________________________________________________________________________________________________________________-->
+    <!--*** CONTAINER: HIGH SCORES SCREEN ***-->
+    <!--OBJECT: GAME RECORD-->
+    <!--Sub-Object: PLAYER NAME-->
+    <!--Sub-Object: PROMPT & DIFFICULTY-->
+    <!--Sub-Object: TOTAL SCORE-->
 
-                <button class="main buttBack">LEAVE POST</button>
+    <div class="screen highscores hidden">
+      <div class="scorebox">
+        <!--RECORDS OF ALL GAMES PLAYED THIS SESSION ARE DISPLAYED PROGRAMMATICALLY HERE, RANKED BY TOTAL SCORE.-->
+      </div>
 
-        </div>
+      <button class="main buttBack stdBack">Leave Scores</button>
+    </div>
+  </body>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** CONTAINER: HOW TO PLAY SCREEN-->
-        <!--RULES TEXT-->
+  <footer>
+    <h3 class="testInput">Test Input</h3>
+    <h3>audio by Stardust Vibes — art by Yuumei</h3>
+  </footer>
 
-        <div class="screen rules hidden">
-                <p>Raindrops is a game in which the player is given a set of letters, ranging from two to four characters long.<br>  
-                The player is then given a period of time to type in as many words as they can think of that begin with the specified string of letters.<br>  
-                Striking the ["Enter"] key inputs the current string of typed letters to the game.</p>
-                <button class="main buttBack">LEAVE RULES</button>
-        </div>
+  <div class="UIaudio">
+    <button class="mini buttAudioStop stdBack">Stop Audio</button>
+    <button class="mini buttAudioStart stdBack">Start Audio</button>
+  </div>
 
-<!--____________________________________________________________________________________________________________________________________________-->
-        <!--*** CONTAINER: HIGH SCORES SCREEN ***-->
-        <!--OBJECT: GAME RECORD-->
-        <!--Sub-Object: PLAYER NAME-->
-        <!--Sub-Object: PROMPT & DIFFICULTY-->
-        <!--Sub-Object: TOTAL SCORE-->
+  <script src="./scripts.js"></script>
+  <script src="./rainmaker.js"></script>
 
-        <div class="screen highscores hidden">
-                <div class="scorebox">
-                        <!--RECORDS OF ALL GAMES PLAYED THIS SESSION ARE DISPLAYED PROGRAMMATICALLY HERE, RANKED BY TOTAL SCORE.-->
-                </div>
-
-
-                <button class="main buttBack">LEAVE SCORES</button>
-
-        </div>
-
-        
-
-    </body>
-
-    <footer>
-        <h3 class="testInput">Test Input</h3>
-        <h3>audio by Stardust Vibes — art by Yuumei</h3>
-        <button class="mini buttAudioStop">STOP AUDIO</button> <button class="mini buttAudioStart">START AUDIO</button>
-    </footer>
-
-    <script src="./scripts.js"></script>
-    <script src="./rainmaker.js"></script>
-
-    <!--var videos = ['lNn18F51bfo','qO1dxspsYn0','OxzG2UMAkRo','eLeIJtLebZk'];         FOR RAINMAKER 2-->
-
+  <!--var videos = ['lNn18F51bfo','qO1dxspsYn0','OxzG2UMAkRo','eLeIJtLebZk'];         FOR RAINMAKER 2-->
 </html>

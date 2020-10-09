@@ -1,20 +1,26 @@
 # ga04-Raindrops
+
 General Assembly SEI-39 Project 4 - "Raindrops" - a speed typing game
 
 ## Introduction
-Raindrops is a game in which the player is given a set of letters, ranging from two to four characters long.  The player is then given a period of time to type in as many words as they can think of that begin with the specified string of letters.  Striking the ["Enter"] key inputs the current string of typed letters to the game.  The game uses a raindrop motif to present letters to the player, which blends seamlessly into the background.  The game environment immerses the player with relaxing ambient sounds, including a rainy backdrop and instrumental music (used with permission) from the artist "C418".
+
+Raindrops is a game in which the player is given a set of letters, ranging from two to four characters long. The player is then given a period of time to type in as many words as they can think of that begin with the specified string of letters. Striking the ["Enter"] key inputs the current string of typed letters to the game. The game uses a raindrop motif to present letters to the player, which blends seamlessly into the background. The game environment immerses the player with relaxing ambient sounds, including a rainy backdrop and instrumental music (used with permission) from the artist "C418".
 
 &nbsp;
 
-## Scoring (Current)
-This is a simple game project, so scoring relies on the player.  At the end of the "active" period, the player is presented with all of the string they submitted as part of that round.  The strings are grouped by length, and the player may click on strings to remove them from the submission sheet if they are incorrect.  Once complete, the player hits a "submit" button, and the game awards an amount of points for that round based on three factors:
+## Gameplay
 
-- Each word has a base score of 1 point per letter.
+When the player clicks the "New Game" button, they are presented with a prompt, which is a string of letters two to four characters long. After reviewing the prompt, the player may click "Start Game" to begin, or "Leave Game" to return to the welcome screen. When the game begins, the player is given 30 seconds to type as many words as they can that begin with the specified string. The player should type as rapidly as possible to achieve the highest possible score.
 
+## Scoring
 
-## Scoring (Planned)
-- Each word's base score is multiplied based on its length.  The multiplier is equal to 1+((N-3)/10), where N is the word's length.  Longer words are worth more per letter than short words.
+This is a simple game project, so scoring relies on the player. At the end of the "active" period, the player is presented with all of the words they submitted as part of that round. The player may hit a "submit" button, and the game awards an amount of points for that round based on the total length of the words submitted. The player also has the option to hit "Leave Game", which will not record their final score.
 
-- The total score for all words in a particular length category (four words, eight words, etc.) is also multiplied.  This multiplier is equal to (N+M)/16, where N is the word length and M is the quantity of words.
+## Extra Features
 
-- After all operations are completed, the score is rounded to the nearest integer value.
+- The game records all submitted scores, allowing the player to see them under the "Your Scores" button.
+- An ingame guide to gameplay can be found by clicking on the "How to Play" button.
+
+## Rainmaker
+
+Raindrops features a standalone script of my own devising, which pulls from a provided list of youtube videos and plays only the audio from a random one in the background, at a low volume. By default, the list of videos includes long-running ambient rain and thunder soundscapes. This script runs automatically, and can be manually started and stopped by clicking the "Start Audio" and "Stop Audio" buttons, respectively.
